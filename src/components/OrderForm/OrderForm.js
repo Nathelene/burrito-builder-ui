@@ -16,7 +16,6 @@ function OrderForm({addNewOrder}) {
     e.preventDefault();
     if(ingredients && name) {
     postOrder({
-     
       name:name,
       ingredients:ingredients
     }).then(data => {
@@ -24,8 +23,10 @@ function OrderForm({addNewOrder}) {
       addNewOrder(data)
     })
     clearInputs();
+    } else if (ingredients.length < 1){
+      return "error"
     } else {
-      return <p>Please enter name and ingredients</p>
+      return "error"
     }
   }
 
@@ -90,7 +91,7 @@ function handleIngredients(e) {
       : ingredients} </p> :
       <p>Order: "No ingredients"</p>}
       
-      <button  onClick={e => handleSubmit(e)}>Submit Order</button>
+      <button  className="submit-order" onClick={e => handleSubmit(e)}>Submit Order</button>
     </form>
   );
 }
