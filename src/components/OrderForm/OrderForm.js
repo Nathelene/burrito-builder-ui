@@ -14,7 +14,7 @@ function OrderForm({addNewOrder}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if(ingredients && name) {
+    if(ingredients.length > 0 && name) {
     postOrder({
       name:name,
       ingredients:ingredients

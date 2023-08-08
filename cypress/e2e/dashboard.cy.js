@@ -52,6 +52,10 @@ it('should display order form title and previous orders on page load', () => {
       .get("form").find('[name="beans"]').click()
       .get(".submit-order").click()
       .get("section").children().should("have.length", "1")
+     cy.visit("http://localhost:3000/")
+     .get("form").find('[name="name"]').type("Jen")
+     .get(".submit-order").click()
+     .get("section").children().should("have.length", "1")
    })
 
   
